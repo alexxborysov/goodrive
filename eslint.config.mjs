@@ -17,7 +17,6 @@ const eslintConfig = [
     rules: {
       "@cspell/spellchecker": ["warn", { checkComments: true, autoFix: true }],
     },
-    "react-hooks/exhaustive-deps": "off",
   },
 ];
 

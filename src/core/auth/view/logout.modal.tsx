@@ -43,12 +43,14 @@ export function LogoutModal(props: { triggerSlot: ReactNode }) {
     }
     window.addEventListener("keydown", handleEnterPressed);
     return () => window.removeEventListener("keydown", handleEnterPressed);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   return (
     <AlertDialog open={isOpen}>
       <AlertDialogTrigger asChild onClick={open}>
         {/* TODO: upgrade radix-ui.. */}
+        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
         {props.triggerSlot as any}
       </AlertDialogTrigger>
       <AlertDialogContent onEscapeKeyDown={close}>

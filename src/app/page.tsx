@@ -1,9 +1,4 @@
-import {
-  ArrowDown,
-  ArrowDown01,
-  ArrowDownIcon,
-  RocketIcon,
-} from "lucide-react";
+import { ArrowDownIcon, RocketIcon } from "lucide-react";
 import { Button } from "~/shared/view/ui/button";
 
 export default function Home() {
