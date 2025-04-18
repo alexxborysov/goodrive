@@ -1,19 +1,33 @@
 "use client";
 
 import Link from "next/link";
-import { Transition } from "../view/ui/transition";
-import { Button } from "../view/ui/button";
-import { GoogleIcon } from "../view/icons/google";
-import { ThemeToggle } from "../view/theme/toggle";
 import { usePathname } from "next/navigation";
+import { GoogleIcon } from "~/shared/view/icons/google";
+import { ThemeToggle } from "~/shared/view/theme/toggle";
+import { Button } from "~/shared/view/ui/button";
+import { Transition } from "~/shared/view/ui/transition";
+import { cn } from "~/shared/view/ui/utils";
+import { useEffectState, useViewer } from "~/core/auth/selectors";
 import type { ReactNode } from "react";
-import { cn } from "../view/ui/utils";
+import { useAppDispatch } from "../store/mod";
+import { openSignInEffect } from "~/core/auth/effects/open-sign-in";
+import { useRouter } from "next/navigation";
 
 export function DefaultLayout(props: { children: ReactNode }) {
+  const router = useRouter();
   const pathname = usePathname();
+  const dispatch = useAppDispatch();
 
-  const viewerAuthorized = false;
-  const authorizationChecked = true;
+  const viewerAuthorized = useViewer();
+  const authorizationChecked = useEffectState("whoami").status === "fulfilled";
+
+  function signIn() {
+    dispatch(openSignInEffect());
+  }
+
+  function openDashboard() {
+    router.push("/dashboard");
+  }
 
   return (
     <main className="flex min-h-[100dvh] h-[100dvh] w-full flex-col items-center justify-start overflow-hidden bg-background">
@@ -21,7 +35,8 @@ export function DefaultLayout(props: { children: ReactNode }) {
         <div className="mx-auto flex h-[60px] w-full items-center px-3 lg:px-4">
           <Link
             href="/"
-            className="-mt-[1px] mr-auto block font-mono text-base sm:text-lg font-medium md:mr-6 text-primary"
+            tabIndex={-1}
+            className="-mt-[1px] rounded-lg mr-auto block font-mono text-base sm:text-xl font-medium md:mr-6 text-primary"
           >
             goodrive
           </Link>
@@ -33,17 +48,17 @@ export function DefaultLayout(props: { children: ReactNode }) {
               pathname.includes("dashboard") && "lg:translate-x-2",
             )}
           >
-            <Link href="/docs">
+            <Link href="/docs" tabIndex={-1}>
               <Button variant="link" className="px-2">
                 Docs
               </Button>
             </Link>
             {viewerAuthorized ? (
-              <Link href="/dashboard">
+              <Link href="/dashboard" onClick={openDashboard}>
                 <Button variant="secondary">Dashboard</Button>
               </Link>
             ) : (
-              <Button variant="secondary">
+              <Button variant="secondary" onClick={signIn}>
                 <GoogleIcon />
                 Connect
               </Button>

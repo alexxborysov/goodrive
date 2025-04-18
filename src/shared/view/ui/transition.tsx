@@ -37,7 +37,7 @@ export function Transition({
           animate="animate"
           exit="exit"
           variants={selectedVariant}
-          transition={{ duration, delay, ease: "easeInOut" }}
+          transition={{ duration, delay, ease: "easeIn" }}
         >
           {children}
         </motion.div>

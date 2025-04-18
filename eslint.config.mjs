@@ -15,11 +15,9 @@ const eslintConfig = [
   cspellConfigs.recommended,
   {
     rules: {
-      "@cspell/spellchecker": [
-        "warn",
-        { checkComments: false, autoFix: true, ignoreWords: ["goodrive"] },
-      ],
+      "@cspell/spellchecker": ["warn", { checkComments: true, autoFix: true }],
     },
+    "react-hooks/exhaustive-deps": "off",
   },
 ];
 

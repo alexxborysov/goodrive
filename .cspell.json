@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "language": "en",
+  "ignoreWords": [
+    "goodrive",
+    "nums",
+    "nuxtjs",
+    "Next.js",
+    "next.js",
+    "pinia",
+    "ETIMEOUT",
+    "Sonner"
+  ]
+}

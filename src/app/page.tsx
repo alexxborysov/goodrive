@@ -1,9 +1,14 @@
-import { RocketIcon } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowDown01,
+  ArrowDownIcon,
+  RocketIcon,
+} from "lucide-react";
 import { Button } from "~/shared/view/ui/button";
 
 export default function Home() {
   return (
-    <div className="border-t-[1px] border-border/50 items-center justify-items-center min-h-[100dvh] h-[100dvh] flex justify-center p-6 mt-[61px] w-full font-[family-name:var(--font-geist-sans)]">
+    <div className="items-center justify-items-center min-h-[100dvh] h-[100dvh] flex justify-center p-6 mt-[61px] w-full font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start -mt-40 px-1 md:px-2">
         <h1 className="text-3xl lg:text-4xl text-center leading-10">
           Google Drive as your Cloud Bucket
@@ -13,7 +18,7 @@ export default function Home() {
             Connect Google Account with Drive.
           </li>
           <li className="tracking-[-.01em]">
-            Generate secret key for our API Service.
+            Securely use it as Cloud Bucket through our API Service.
           </li>
         </ol>
 
@@ -22,6 +27,9 @@ export default function Home() {
           <Button variant="outline">
             <RocketIcon />
             Learn goodrive
+          </Button>
+          <Button variant="outline">
+            <ArrowDownIcon />
           </Button>
         </div>
       </main>
