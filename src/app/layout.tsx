@@ -14,9 +14,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "goodrive",
-  description: "goodrive application",
+export const generateMetadata = (): Metadata => {
+  const robots = {
+    staging: { index: false, follow: false },
+    production: { index: true, follow: true },
+  };
+
+  return {
+    title: "goodrive",
+    description: "goodrive application",
+    robots: robots[process.env.NEXT_PUBLIC_ENV],
+  };
 };
 
 export default function RootLayout({
