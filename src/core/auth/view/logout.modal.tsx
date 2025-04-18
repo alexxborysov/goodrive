@@ -48,7 +48,8 @@ export function LogoutModal(props: { triggerSlot: ReactNode }) {
   return (
     <AlertDialog open={isOpen}>
       <AlertDialogTrigger asChild onClick={open}>
-        {props.triggerSlot}
+        {/* TODO: upgrade radix-ui.. */}
+        {props.triggerSlot as any}
       </AlertDialogTrigger>
       <AlertDialogContent onEscapeKeyDown={close}>
         <AlertDialogHeader>
