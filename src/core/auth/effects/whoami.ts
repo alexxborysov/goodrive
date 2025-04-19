@@ -12,11 +12,12 @@ export const whoamiEffect = createAsyncThunk<
 >("whoami-effect", async () => {
   const query = await api.whoami();
   if (query.success) {
-    const { buckets, viewerEmail } = query.success;
+    const { buckets, viewerEmail, viewerName } = query.success;
     return success({
       viewer: {
         email: viewerEmail,
-        nameInitials: makeNameInitials(null),
+        name: viewerName,
+        nameInitials: makeNameInitials(viewerName),
       } as Viewer,
       buckets,
     });

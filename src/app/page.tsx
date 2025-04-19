@@ -5,7 +5,10 @@ export default function Home() {
   return (
     <div className="items-center justify-items-center min-h-[100dvh] h-[100dvh] flex justify-center p-6 mt-[61px] w-full font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start -mt-40 px-1 md:px-2">
-        <h1 className="text-3xl lg:text-4xl text-center leading-10">
+        <h1
+          className="text-3xl lg:text-4xl text-center leading-10"
+          data-heading-tag="H1"
+        >
           Google Drive as your Cloud Bucket
         </h1>
         <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">

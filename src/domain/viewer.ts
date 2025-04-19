@@ -4,8 +4,8 @@ import { Option } from "~/shared/types/option";
 export type Viewer = Brand<
   {
     email: ViewerEmail;
-    name: Option<ViewerName>;
-    nameInitials: Option<ViewerNameInitials>;
+    name: ViewerName;
+    nameInitials: ViewerNameInitials;
   },
   "viewer"
 >;
