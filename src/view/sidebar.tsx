@@ -35,11 +35,14 @@ import { Viewer } from "~/domain/viewer";
 import { LogoutModal } from "~/core/auth/view/logout.modal";
 import { useViewer } from "~/core/auth/selectors";
 import { Option } from "~/shared/types/option";
+import { useBucketsCount } from "~/core/bucket/selectors";
 
 export function ApplicationSidebar() {
   const viewer = useViewer();
   const pathname = usePathname();
-  const menuItems = getMenuItems({ bucketsCount: 2 });
+
+  const bucketsCount = useBucketsCount();
+  const menuItems = getMenuItems({ bucketsCount });
 
   return (
     <Sidebar className="mt-[52px] !max-h-[calc(100dvh-53px)] !h-[calc(100dvh-53px)] !border-0 relative">
@@ -132,18 +135,12 @@ function getMenuItems(params: { bucketsCount: number }) {
 }
 
 function ViewerPreview(props: { viewer: Option<Viewer> }) {
-  const initials = props.viewer?.name
-    .split(" ")
-    .slice(0, 2)
-    .map((word) => word[0])
-    .join("");
-
   if (!props.viewer) return;
   return (
     <div className="flex w-full on-focus cursor-pointer items-center justify-between rounded-sm py-1 transition hover:bg-gray-500/10 lg:px-2">
       <Avatar className="mr-3">
         <AvatarImage src="https://github.com/shadcn.png" />
-        <AvatarFallback>{initials}</AvatarFallback>
+        <AvatarFallback>{props.viewer.nameInitials}</AvatarFallback>
       </Avatar>
       <div className="mr-1 hidden w-full flex-col items-start justify-start lg:flex">
         <span className="w-fit max-w-[142px] truncate text-sm">

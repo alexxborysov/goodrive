@@ -161,7 +161,11 @@ export interface paths {
           headers: {
             [name: string]: unknown;
           };
-          content?: { name: string; session_email: string };
+          content?: {
+            buckets: Array<string> | null | undefined;
+            session_email: string;
+            id: string;
+          };
         };
       };
     };

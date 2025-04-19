@@ -4,7 +4,7 @@ import { Option } from "~/shared/types/option";
 export type Viewer = Brand<
   {
     email: ViewerEmail;
-    name: ViewerName;
+    name: Option<ViewerName>;
     nameInitials: Option<ViewerNameInitials>;
   },
   "viewer"
@@ -14,7 +14,8 @@ export type ViewerEmail = Brand<string, "viewer-email">;
 export type ViewerName = Brand<string, "viewer-name">;
 export type ViewerNameInitials = Brand<string, "viewer-name-initials">;
 
-export function makeNameInitials(name: ViewerName): ViewerNameInitials {
+export function makeNameInitials(name: Option<ViewerName>): ViewerNameInitials {
+  if (!name?.length) return "VG" as ViewerNameInitials;
   return name
     .split(" ")
     .slice(0, 2)
