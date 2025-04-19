@@ -1,12 +1,11 @@
 export const CONFIG = {
   get GOOGLE_SIGN_IN_PAGE_URL() {
-    const ON_SUCCESS_SIGN_IN_URL = `${window.location.origin}/dashboard`;
-
+    const ROUTE_TO_BE_REDIRECTED_ON_SIGN_IN = `/dashboard`;
     return (
       process.env.NEXT_PUBLIC_BACKEND_API_URI +
       "/auth/google-email?" +
       "success_url=" +
-      ON_SUCCESS_SIGN_IN_URL
+      ROUTE_TO_BE_REDIRECTED_ON_SIGN_IN
     );
   },
 };
