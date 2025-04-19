@@ -3,16 +3,16 @@ import { Option } from "~/shared/types/option";
 
 export type Viewer = Brand<
   {
+    email: ViewerEmail;
     name: ViewerName;
     nameInitials: Option<ViewerNameInitials>;
-    sessionEmail: Email;
   },
   "viewer"
 >;
 
-export type Email = Brand<string, "email">;
+export type ViewerEmail = Brand<string, "viewer-email">;
 export type ViewerName = Brand<string, "viewer-name">;
-export type ViewerNameInitials = Brand<string, "viewer-name">;
+export type ViewerNameInitials = Brand<string, "viewer-name-initials">;
 
 export function makeNameInitials(name: ViewerName): ViewerNameInitials {
   return name

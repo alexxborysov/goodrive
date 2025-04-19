@@ -1,4 +1,4 @@
-import type { Email, Viewer, ViewerName } from "~/domain/viewer";
+import type { ViewerEmail, Viewer, ViewerName } from "~/domain/viewer";
 import type { Option } from "~/shared/types/option";
 import type { paths } from "~/shared/api/interface";
 import {
@@ -48,7 +48,7 @@ function mapViewer(
 ) {
   return {
     name: payload?.name as ViewerName,
-    sessionEmail: payload?.session_email as Email,
+    email: payload?.session_email as ViewerEmail,
     nameInitials: null,
   } as Viewer;
 }

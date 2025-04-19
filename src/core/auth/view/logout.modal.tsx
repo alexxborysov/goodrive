@@ -28,7 +28,6 @@ export function LogoutModal(props: { triggerSlot: ReactNode }) {
   }
 
   async function logout() {
-    console.log("run");
     close();
     await delay();
     router.replace("/");
@@ -43,7 +42,6 @@ export function LogoutModal(props: { triggerSlot: ReactNode }) {
     }
     window.addEventListener("keydown", handleEnterPressed);
     return () => window.removeEventListener("keydown", handleEnterPressed);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
   return (

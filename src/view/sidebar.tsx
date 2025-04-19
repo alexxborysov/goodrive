@@ -150,7 +150,7 @@ function ViewerPreview(props: { viewer: Option<Viewer> }) {
           {props.viewer.name}
         </span>
         <span className="w-fit max-w-[142px] truncate text-xs text-gray-500">
-          {props.viewer.sessionEmail}
+          {props.viewer.email}
         </span>
       </div>
       <ChevronsUpDown className="hidden h-4 min-h-4 w-4 min-w-4 lg:block" />
