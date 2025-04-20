@@ -1,7 +1,7 @@
-@import url("~/shared/view/ui/on-focus.css");
+@import url('~/shared/view/ui/on-focus.css');
 
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -78,6 +78,11 @@
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.705 0.015 286.067);
+  --chart-1: 221.2 83.2% 53.3%;
+  --chart-2: 212 95% 68%;
+  --chart-3: 216 92% 60%;
+  --chart-4: 210 98% 78%;
+  --chart-5: 212 97% 87%;
 }
 
 .dark {
@@ -112,6 +117,11 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.552 0.016 285.938);
+  --chart-1: 221.2 83.2% 53.3%;
+  --chart-2: 212 95% 68%;
+  --chart-3: 216 92% 60%;
+  --chart-4: 210 98% 78%;
+  --chart-5: 212 97% 87%;
 }
 
 @layer base {
@@ -121,4 +131,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }

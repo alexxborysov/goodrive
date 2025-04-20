@@ -1,5 +1,5 @@
-import { useEffect, useState, type ReactNode } from "react";
-import { useAppDispatch } from "~/kernel/store/mod";
+import { useEffect, useState, type ReactNode } from 'react';
+import { useAppDispatch } from '~/kernel/store/mod';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -10,10 +10,10 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "~/shared/view/ui/alert-dialog";
-import { logoutEffect } from "../effects/logout";
-import { delay } from "~/shared/lib/delay";
-import { useRouter } from "next/navigation";
+} from '~/shared/view/ui/alert-dialog';
+import { logoutEffect } from '../effects/logout';
+import { delay } from '~/shared/lib/delay';
+import { useRouter } from 'next/navigation';
 
 export function LogoutModal(props: { triggerSlot: ReactNode }) {
   const router = useRouter();
@@ -30,7 +30,7 @@ export function LogoutModal(props: { triggerSlot: ReactNode }) {
   async function logout() {
     close();
     await delay();
-    router.replace("/");
+    router.replace('/');
     await delay();
     dispatch(logoutEffect());
   }
@@ -38,10 +38,10 @@ export function LogoutModal(props: { triggerSlot: ReactNode }) {
   useEffect(() => {
     if (!isOpen) return;
     function handleEnterPressed(event: KeyboardEvent) {
-      if (event.key === "Enter") logout();
+      if (event.key === 'Enter') logout();
     }
-    window.addEventListener("keydown", handleEnterPressed);
-    return () => window.removeEventListener("keydown", handleEnterPressed);
+    window.addEventListener('keydown', handleEnterPressed);
+    return () => window.removeEventListener('keydown', handleEnterPressed);
   }, [isOpen]);
 
   return (

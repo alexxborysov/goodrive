@@ -1,5 +1,5 @@
-import type { ApiClientResponse } from "./private-client";
-import axios, { type AxiosRequestConfig } from "axios";
+import type { ApiClientResponse } from './private-client';
+import axios, { type AxiosRequestConfig } from 'axios';
 
 const injected = {
   baseUrl: process.env.NEXT_BACKEND_API_URI,

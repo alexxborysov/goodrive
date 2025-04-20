@@ -1,8 +1,8 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { Bucket, BucketLinkedEmail } from "~/domain/bucket";
-import { on } from "~/kernel/store/middleware";
-import { whoamiEffect } from "../auth/effects/whoami";
-import { Option } from "~/shared/types/option";
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { Bucket, BucketLinkedEmail } from '~/domain/bucket';
+import { on } from '~/kernel/store/middleware';
+import { whoamiEffect } from '../auth/effects/whoami';
+import { Option } from '~/shared/types/option';
 
 export type Model = {
   buckets: Option<Array<Bucket>>;
@@ -13,7 +13,7 @@ const initialState: Model = {
 };
 
 export const bucketModel = createSlice({
-  name: "bucket-model",
+  name: 'bucket-model',
   initialState,
   reducers: {
     setBuckets(state, { payload }: PayloadAction<Option<Array<Bucket>>>) {
@@ -21,10 +21,10 @@ export const bucketModel = createSlice({
     },
     deleteBucketByLinkedEmail(
       state,
-      { payload: linkedEmail }: PayloadAction<BucketLinkedEmail>,
+      { payload: linkedEmail }: PayloadAction<BucketLinkedEmail>
     ) {
       const idx = state.buckets?.findIndex(
-        (bucket) => bucket.linkedEmail === linkedEmail,
+        (bucket) => bucket.linkedEmail === linkedEmail
       );
       if (idx !== -1 && idx) state.buckets?.splice(idx, 1);
     },

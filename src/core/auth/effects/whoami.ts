@@ -1,15 +1,15 @@
-import { makeNameInitials, type Viewer } from "~/domain/viewer";
-import type { Option } from "~/shared/types/option";
-import { ActionReducerMapBuilder, createAsyncThunk } from "@reduxjs/toolkit";
-import { api } from "../api";
-import { Model } from "../model";
-import { Bucket } from "~/domain/bucket";
-import { Result } from "~/shared/types/result";
-import { error, success } from "~/shared/lib/result";
+import { makeNameInitials, type Viewer } from '~/domain/viewer';
+import type { Option } from '~/shared/types/option';
+import { ActionReducerMapBuilder, createAsyncThunk } from '@reduxjs/toolkit';
+import { api } from '../api';
+import { Model } from '../model';
+import { Bucket } from '~/domain/bucket';
+import { Result } from '~/shared/types/result';
+import { error, success } from '~/shared/lib/result';
 
 export const whoamiEffect = createAsyncThunk<
   Result<{ buckets: Option<Array<Bucket>>; viewer: Viewer }, null>
->("whoami-effect", async () => {
+>('whoami-effect', async () => {
   const query = await api.whoami();
   if (query.success) {
     const { buckets, viewerEmail, viewerName } = query.success;

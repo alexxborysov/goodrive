@@ -1,8 +1,8 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { EFFECT_META_INITIAL, EffectMeta } from "~/shared/types/effect-meta";
-import { whoamiHandler } from "./effects/whoami";
-import type { Viewer } from "~/domain/viewer";
-import type { Option } from "~/shared/types/option";
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { EFFECT_META_INITIAL, EffectMeta } from '~/shared/types/effect-meta';
+import { whoamiHandler } from './effects/whoami';
+import type { Viewer } from '~/domain/viewer';
+import type { Option } from '~/shared/types/option';
 
 export type Model = {
   viewer: Option<Viewer>;
@@ -19,7 +19,7 @@ const initialState: Model = {
 };
 
 export const authModel = createSlice({
-  name: "auth-model",
+  name: 'auth-model',
   initialState,
   reducers: {
     setViewer(state, action: PayloadAction<Viewer>) {

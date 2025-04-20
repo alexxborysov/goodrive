@@ -1,9 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/query";
-import { useDispatch } from "react-redux";
+import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
+import { useDispatch } from 'react-redux';
 
-import { listener } from "./middleware";
-import { reducer } from "./reducer";
+import { listener } from './middleware';
+import { reducer } from './reducer';
 
 export const createStore = () => {
   const _store = configureStore({
@@ -16,7 +16,7 @@ export const createStore = () => {
   const extended = {
     store: _store,
     and: function (
-      callback: (dispatch: typeof _store.dispatch) => Promise<void> | void,
+      callback: (dispatch: typeof _store.dispatch) => Promise<void> | void
     ) {
       callback(_store.dispatch);
       return this;

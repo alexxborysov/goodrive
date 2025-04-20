@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { DefaultLayout } from "~/kernel/layouts/default";
-import { WithProviders } from "~/kernel/providers/with-providers";
-import "~/kernel/styling/main.css";
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import { DefaultLayout } from '~/kernel/layouts/default';
+import { WithProviders } from '~/kernel/providers/with-providers';
+import '~/kernel/styling/main.css';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const generateMetadata = (): Metadata => {
@@ -21,8 +21,8 @@ export const generateMetadata = (): Metadata => {
   };
 
   return {
-    title: "goodrive",
-    description: "goodrive application",
+    title: 'goodrive',
+    description: 'goodrive application',
     robots: robots[process.env.NEXT_PUBLIC_ENV],
   };
 };

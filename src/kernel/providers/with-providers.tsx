@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import type { ReactNode } from "react";
-import { WithStore } from "./with-store";
-import { ThemeProvider } from "./with-theme";
-import { InitApplication } from "./with-initialize";
-import { WithToaster } from "./with-toaster";
+import type { ReactNode } from 'react';
+import { WithStore } from './with-store';
+import { ThemeProvider } from './with-theme';
+import { InitApplication } from './with-initialize';
+import { WithToaster } from './with-toaster';
 
 export function WithProviders(props: { children: ReactNode }) {
   return (

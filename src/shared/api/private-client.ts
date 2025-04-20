@@ -1,5 +1,5 @@
-import axios, { type AxiosError, type AxiosRequestConfig } from "axios";
-import type { Option } from "../types/option";
+import axios, { type AxiosError, type AxiosRequestConfig } from 'axios';
+import type { Option } from '../types/option';
 
 const injected = {
   baseUrl: process.env.NEXT_PUBLIC_BACKEND_API_URI,
@@ -11,7 +11,7 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(async (config) => {
-  config.headers["Content-Type"] = "application/json";
+  config.headers['Content-Type'] = 'application/json';
   return config;
 });
 
@@ -41,11 +41,11 @@ export const privateApiClient = {
 export function isNetworkError(error: ApiRequestError) {
   if (error?.code) {
     return (
-      error.code === "ERR_NETWORK" ||
-      error.code === "ERR_CANCELED" ||
-      error.code === "ENOTFOUND" ||
-      error.code === "ECONNRESET" ||
-      error.code === "ETIMEOUT"
+      error.code === 'ERR_NETWORK' ||
+      error.code === 'ERR_CANCELED' ||
+      error.code === 'ENOTFOUND' ||
+      error.code === 'ECONNRESET' ||
+      error.code === 'ETIMEOUT'
     );
   }
 }

@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-  "/api/auth/google-email": {
+  '/api/auth/google-email': {
     parameters: {
       query?: never;
       header?: never;
@@ -37,7 +37,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/auth/google-drive": {
+  '/api/auth/google-drive': {
     parameters: {
       query?: never;
       header?: never;
@@ -70,7 +70,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/auth/google-callback": {
+  '/api/auth/google-callback': {
     parameters: {
       query?: never;
       header?: never;
@@ -107,7 +107,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/auth/google-signout": {
+  '/api/auth/google-signout': {
     parameters: {
       query?: never;
       header?: never;
@@ -140,7 +140,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/api/auth/whoami": {
+  '/api/auth/whoami': {
     parameters: {
       query?: never;
       header?: never;

@@ -1,5 +1,5 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { cn } from "./utils";
+import { VariantProps, cva } from 'class-variance-authority';
+import { cn } from './utils';
 
 export function Loader({
   size,
@@ -10,20 +10,20 @@ export function Loader({
 }
 
 const styles = cva(
-  "animate-spin inline-block self-center border-current border-t-transparent rounded-full m-0",
+  'animate-spin inline-block self-center border-current border-t-transparent rounded-full m-0',
   {
     variants: {
       color: {
-        default: ["text-accent-foreground"],
+        default: ['text-accent-foreground'],
       },
       size: {
-        sm: ["h-4 w-4 border-[2.5px]"],
-        md: ["h-6 w-6 border-[2.5px]"],
+        sm: ['h-4 w-4 border-[2.5px]'],
+        md: ['h-6 w-6 border-[2.5px]'],
       },
     },
     defaultVariants: {
-      color: "default",
-      size: "md",
+      color: 'default',
+      size: 'md',
     },
-  },
+  }
 );

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, type ReactNode } from "react";
-import { initializeApplication } from "../app-init";
+import { useEffect, type ReactNode } from 'react';
+import { initializeApplication } from '../app-init';
 
 export function InitApplication(props: { children: ReactNode }) {
   useEffect(initializeApplication, []);

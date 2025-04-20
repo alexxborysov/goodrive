@@ -1,10 +1,10 @@
-import React, { ReactNode } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { ReactNode } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 type Props = {
   children: ReactNode;
   className?: string;
-  type?: "fade";
+  type?: 'fade';
   duration?: number;
   delay?: number;
   show?: boolean;
@@ -12,8 +12,8 @@ type Props = {
 
 export function Transition({
   children,
-  className = "",
-  type = "fade",
+  className = '',
+  type = 'fade',
   duration = 0.2,
   delay = 0,
   show = true,
@@ -37,7 +37,7 @@ export function Transition({
           animate="animate"
           exit="exit"
           variants={selectedVariant}
-          transition={{ duration, delay, ease: "easeIn" }}
+          transition={{ duration, delay, ease: 'easeIn' }}
         >
           {children}
         </motion.div>

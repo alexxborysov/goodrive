@@ -1,13 +1,13 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
 export const useViewer = () => {
-  return useSelector((state: AppState) => state["auth-model"].viewer);
+  return useSelector((state: AppState) => state['auth-model'].viewer);
 };
 
 export const useEffectState = <
-  Effect extends keyof AppState["auth-model"]["effects"],
+  Effect extends keyof AppState['auth-model']['effects'],
 >(
-  effect: Effect,
+  effect: Effect
 ) => {
-  return useSelector((state: AppState) => state["auth-model"].effects[effect]);
+  return useSelector((state: AppState) => state['auth-model'].effects[effect]);
 };
