@@ -39,13 +39,17 @@ const chartConfig = {
 
 export function TransferredDataCharts() {
   return (
-    <Card className="h-fit min-w-full">
+    <Card className="max-h-[440px] min-w-full">
       <CardHeader>
         <CardTitle>Transferred Monthly</CardTitle>
         <CardDescription>Showing I/O for the last 6 months</CardDescription>
       </CardHeader>
-      <CardContent className="h-[263px]">
-        <ChartContainer config={chartConfig} height={264}>
+      <CardContent className="max-h-[264px] w-full overflow-hidden">
+        <ChartContainer
+          config={chartConfig}
+          height={264}
+          className="max-h-[264px] w-full"
+        >
           <AreaChart
             accessibilityLayer
             data={chartData}

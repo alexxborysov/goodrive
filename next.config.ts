@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
   experimental: {
     reactCompiler: true,
   },
+  allowedDevOrigins: ['stage.goodrive.services'],
 };
 
 export default nextConfig;

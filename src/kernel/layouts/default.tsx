@@ -36,7 +36,7 @@ export function DefaultLayout(props: { children: ReactNode }) {
           <Link
             href="/"
             tabIndex={-1}
-            className="text-primary -mt-[1px] mr-auto block rounded-lg font-mono text-base font-medium sm:text-xl md:mr-6"
+            className="text-primary -mt-[1px] mr-auto block rounded-lg font-mono text-lg font-medium sm:text-xl md:mr-6"
           >
             goodrive
           </Link>

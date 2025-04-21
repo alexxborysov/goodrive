@@ -12,12 +12,12 @@ import { TransferredDataCharts } from '~/view/transferred-charts';
 export default function Home() {
   return (
     <main className="mt-[61px] flex h-full w-full flex-col items-center justify-items-center font-[family-name:var(--font-geist-sans)]">
-      <section className="-mt-32 flex h-dvh flex-col items-center justify-center gap-[32px] px-5 sm:items-start md:px-2">
+      <section className="-mt-[13dvh] flex h-dvh flex-col items-center justify-center gap-[32px] px-5 sm:items-start md:px-2">
         <h1
           className="text-center text-3xl leading-10 xl:text-4xl"
           data-heading-tag="H1"
         >
-          Google Drive as your Cloud Bucket
+          Google Drive as your Cloud Bucket DEV
         </h1>
         <ol className="list-inside list-decimal text-center font-[family-name:var(--font-geist-mono)] text-sm/6 sm:text-left">
           <li className="mb-2 tracking-[-.01em]">
@@ -65,7 +65,7 @@ export default function Home() {
               description="Connect multiple Google Accounts and manage Buckets in one place."
             />
           </div>
-          <div className="flex w-full min-w-full">
+          <div className="flex h-full w-full min-w-full">
             <TransferredDataCharts />
           </div>
         </div>
