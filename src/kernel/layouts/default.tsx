@@ -1,5 +1,6 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { GoogleIcon } from '~/shared/view/icons/google';
@@ -8,7 +9,6 @@ import { Button } from '~/shared/view/ui/button';
 import { Transition } from '~/shared/view/ui/transition';
 import { cn } from '~/shared/view/ui/utils';
 import { useEffectState, useViewer } from '~/core/auth/selectors';
-import type { ReactNode } from 'react';
 import { useAppDispatch } from '../store/mod';
 import { openSignInEffect } from '~/core/auth/effects/open-sign-in';
 import { useRouter } from 'next/navigation';
