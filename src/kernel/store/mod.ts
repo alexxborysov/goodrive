@@ -5,28 +5,13 @@ import { useDispatch } from 'react-redux';
 import { listener } from './middleware';
 import { reducer } from './reducer';
 
-export const createStore = () => {
-  const _store = configureStore({
-    reducer,
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().prepend(listener.middleware),
-  });
-  setupListeners(_store.dispatch);
+export const store = configureStore({
+  reducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().prepend(listener.middleware),
+});
 
-  const extended = {
-    store: _store,
-    and: function (
-      callback: (dispatch: typeof _store.dispatch) => Promise<void> | void
-    ) {
-      callback(_store.dispatch);
-      return this;
-    },
-  };
-
-  return extended;
-};
-
-export const store = createStore().store;
+setupListeners(store.dispatch);
 
 export const dispatch = store.dispatch;
 export const useAppDispatch = useDispatch<Dispatch>;

@@ -8,9 +8,9 @@ import { ThemeToggle } from '~/shared/view/theme/toggle';
 import { Button } from '~/shared/view/ui/button';
 import { Transition } from '~/shared/view/ui/transition';
 import { cn } from '~/shared/view/ui/utils';
-import { useEffectState, useViewer } from '~/core/auth/selectors';
+import { useEffectState, useViewer } from '~/core/viewer/selectors';
 import { useAppDispatch } from '../store/mod';
-import { openSignInEffect } from '~/core/auth/effects/open-sign-in';
+import { openSignInPageEffect } from '~/core/viewer/effects/open-sign-in-page';
 import { useRouter } from 'next/navigation';
 
 export function DefaultLayout(props: { children: ReactNode }) {
@@ -22,7 +22,7 @@ export function DefaultLayout(props: { children: ReactNode }) {
   const authorizationChecked = useEffectState('whoami').status === 'fulfilled';
 
   function signIn() {
-    dispatch(openSignInEffect());
+    dispatch(openSignInPageEffect());
   }
 
   function openDashboard() {

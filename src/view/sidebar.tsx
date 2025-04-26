@@ -32,8 +32,8 @@ import {
   DropdownMenuTrigger,
 } from '~/shared/view/ui/dropdown-menu';
 import { Viewer } from '~/domain/viewer';
-import { LogoutModal } from '~/core/auth/view/logout.modal';
-import { useViewer } from '~/core/auth/selectors';
+import { LogoutModal } from '~/core/viewer/view/logout.modal';
+import { useViewer } from '~/core/viewer/selectors';
 import { Option } from '~/shared/types/option';
 import { useBucketsCount } from '~/core/bucket/selectors';
 

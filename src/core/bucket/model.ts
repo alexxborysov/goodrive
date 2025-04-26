@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { Bucket, BucketLinkedEmail } from '~/domain/bucket';
 import { on } from '~/kernel/store/middleware';
-import { whoamiEffect } from '../auth/effects/whoami';
+import { whoamiEffect } from '../viewer/effects/whoami';
 import { Option } from '~/shared/types/option';
 
 export type Model = {
@@ -26,15 +26,17 @@ export const bucketModel = createSlice({
       const idx = state.buckets?.findIndex(
         (bucket) => bucket.linkedEmail === linkedEmail
       );
-      if (idx !== -1 && idx) state.buckets?.splice(idx, 1);
+      if (idx !== -1 && idx) {
+        state.buckets?.splice(idx, 1);
+      }
     },
   },
 });
 
 on({
   actionCreator: whoamiEffect.fulfilled,
-  effect: ({ payload }, { dispatch }) => {
-    const buckets = payload.success?.buckets;
+  effect: ({ payload: result }, { dispatch }) => {
+    const buckets = result.success?.buckets;
     dispatch(bucketModel.actions.setBuckets(buckets));
   },
 });

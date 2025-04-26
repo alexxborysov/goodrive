@@ -1,8 +1,9 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { EFFECT_META_INITIAL, EffectMeta } from '~/shared/types/effect-meta';
-import { whoamiHandler } from './effects/whoami';
+import { trackWhoamiEffect, whoamiEffect } from './effects/whoami';
 import type { Viewer } from '~/domain/viewer';
 import type { Option } from '~/shared/types/option';
+import { on } from '~/kernel/store/middleware';
 
 export type Model = {
   viewer: Option<Viewer>;
@@ -18,8 +19,8 @@ const initialState: Model = {
   },
 };
 
-export const authModel = createSlice({
-  name: 'auth-model',
+export const viewerModel = createSlice({
+  name: 'viewer-model',
   initialState,
   reducers: {
     setViewer(state, action: PayloadAction<Viewer>) {
@@ -30,6 +31,16 @@ export const authModel = createSlice({
     },
   },
   extraReducers: (builder) => {
-    whoamiHandler(builder);
+    trackWhoamiEffect(builder);
+  },
+});
+
+on({
+  actionCreator: whoamiEffect.fulfilled,
+  effect: ({ payload: result }, { dispatch }) => {
+    if (result.success) {
+      const viewer = result.success.viewer;
+      dispatch(viewerModel.actions.setViewer(viewer));
+    }
   },
 });

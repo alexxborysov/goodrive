@@ -1,10 +1,10 @@
-import { Brand } from '~/shared/types/brand';
+import { Tag } from '~/shared/types/brand';
 
-export type Bucket = Brand<
+export type Bucket = Tag<
   {
     linkedEmail: BucketLinkedEmail;
   },
   'bucket'
 >;
 
-export type BucketLinkedEmail = Brand<string, 'bucket-linked-email'>;
+export type BucketLinkedEmail = Tag<string, 'bucket-linked-email'>;

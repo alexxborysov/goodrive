@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { AuthorizedView } from '~/core/auth/view/auth.guard';
+import { AuthorizedView } from '~/core/viewer/view/auth.guard';
 import { SidebarProvider } from '~/shared/view/ui/sidebar';
 import { ApplicationSidebar } from '~/view/sidebar';
 

@@ -1,14 +1,17 @@
-import { makeNameInitials, type Viewer } from '~/domain/viewer';
-import type { Option } from '~/shared/types/option';
 import { ActionReducerMapBuilder, createAsyncThunk } from '@reduxjs/toolkit';
 import { api } from '../api';
-import { Model } from '../model';
-import { Bucket } from '~/domain/bucket';
-import { Result } from '~/shared/types/result';
+import { makeNameInitials, type Viewer } from '~/domain/viewer';
+import type { Model } from '../model';
+import type { Bucket } from '~/domain/bucket';
+import type { Result } from '~/shared/types/result';
+import type { Option } from '~/shared/types/option';
 import { error, success } from '~/shared/lib/result';
 
 export const whoamiEffect = createAsyncThunk<
-  Result<{ buckets: Option<Array<Bucket>>; viewer: Viewer }, null>
+  Result<
+    { buckets: Option<Array<Bucket>>; viewer: Viewer },
+    { __type: 'viewer-not-authorized' }
+  >
 >('whoami-effect', async () => {
   const query = await api.whoami();
   if (query.success) {
@@ -22,15 +25,14 @@ export const whoamiEffect = createAsyncThunk<
       buckets,
     });
   }
-  return error(null);
+  return error({ __type: 'viewer-not-authorized' });
 });
 
-export function whoamiHandler(builder: ActionReducerMapBuilder<Model>) {
+export function trackWhoamiEffect(builder: ActionReducerMapBuilder<Model>) {
   builder.addCase(whoamiEffect.pending, (state, { meta }) => {
     state.effects.whoami.status = meta.requestStatus;
   });
-  builder.addCase(whoamiEffect.fulfilled, (state, { meta, payload }) => {
+  builder.addCase(whoamiEffect.fulfilled, (state, { meta }) => {
     state.effects.whoami.status = meta.requestStatus;
-    state.viewer = payload.success?.viewer;
   });
 }

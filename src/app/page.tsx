@@ -54,7 +54,7 @@ export default function Home() {
             />
             <BenefitCard
               title="Zero Config"
-              description="No configuration required — just start using it right away!"
+              description="No configuration required."
             />
             <BenefitCard
               title="Persisted between deployments"
