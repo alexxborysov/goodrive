@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 
 type Props = {
   children: ReactNode;
@@ -31,7 +31,7 @@ export function Transition({
   return (
     <AnimatePresence mode="wait">
       {show && (
-        <motion.div
+        <m.div
           className={className}
           initial="initial"
           animate="animate"
@@ -40,7 +40,7 @@ export function Transition({
           transition={{ duration, delay, ease: 'easeIn' }}
         >
           {children}
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );
